@@ -4,7 +4,7 @@ document.addEventListener('drop', e => {
             let path = file.path;
             const conversionSuccess = await audiosender.convertToSilk(file.path);
             if (!conversionSuccess) {
-                console.error("File conversion failed or file type not supported.");
+                console.error("[Audio-Sender]File conversion failed or file type not supported.");
                 return;
             }
             path += '.silk';
