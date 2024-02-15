@@ -1,21 +1,18 @@
 document.addEventListener('drop', e => {
     if (document.querySelector(".audio-msg-input") != undefined) {
         e.dataTransfer.files.forEach(async file => {
-            let path = file.path;
-            const conversionSuccess = await audiosender.convertToSilk(file.path);
-            if (!conversionSuccess) {
-                console.error("[Audio-Sender]File conversion failed or file type not supported.");
+            let error = await audiosender.convertToSilk(file.path);
+            if (error) {
+                console.error(error);
                 return;
             }
-            path += '.silk';
+            const path = file.path + '.silk';
             const peer = await LLAPI.getPeer();
             await LLAPI.sendMessage(peer, [{
                 type: 'ptt',
                 file: path
             }]);
-            if (!file.path.endsWith(".silk")) {
-                audiosender.deleteFile(path);
-            }
+            audiosender.deleteFile(path);
         });
     }
 });

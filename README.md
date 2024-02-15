@@ -6,4 +6,4 @@
 
 依赖：
 1. 安装 [LLAPI](https://github.com/Night-stars-1/LiteLoaderQQNT-Plugin-LLAPI) 插件
-2. 将 [ffmpeg](https://ffmpeg.org) 与 [silk_codec](https://github.com/KasukuSakura/silk-codec) 添加至环境变量
+2. 将 [ffmpeg (包括 ffprobe)](https://ffmpeg.org) 与 [silk_codec](https://github.com/KasukuSakura/silk-codec) 添加至环境变量
