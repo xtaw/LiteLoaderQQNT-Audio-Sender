@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "silk-wasm": "^3.3.4"
+  }
+}
