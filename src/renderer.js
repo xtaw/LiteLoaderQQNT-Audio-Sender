@@ -1,11 +1,10 @@
+import { Contact, Audio } from '../LiteLoaderQQNT-Euphony/src/index.js';
+
 document.addEventListener('drop', e => {
     if (document.querySelector(".audio-msg-input") != undefined) {
         e.dataTransfer.files.forEach(async file => {
             if (await audio_sender.isFileSilk(file.path)) {
-                LLAPI.sendMessage(await LLAPI.getPeer(), [{
-                    type: 'ptt',
-                    file: file.path
-                }]);
+                Contact.getCurrentContact().sendMessage(new Audio(file.path));
                 return;
             }
             const getSampleRateResult = await audio_sender.getSampleRate(file.path);
@@ -29,10 +28,7 @@ document.addEventListener('drop', e => {
                 console.error(writeFileError);
                 return;
             }
-            await LLAPI.sendMessage(await LLAPI.getPeer(), [{
-                type: 'ptt',
-                file: silkPath
-            }]);
+            await Contact.getCurrentContact().sendMessage(new Audio(silkPath));
             const deleteFileError = await audio_sender.deleteFile(silkPath);
             if (deleteFileError) {
                 console.error(deleteFileError);
