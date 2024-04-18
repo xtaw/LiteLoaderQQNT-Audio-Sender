@@ -5,7 +5,7 @@ const { encode } = require('silk-wasm');
 if (!isMainThread) {
     encode(workerData.pcmData, workerData.sampleRate).then(silk => {
         parentPort.postMessage({
-            data: silk.data
+            data: silk
         });
     }).catch(error => {
         parentPort.postMessage({

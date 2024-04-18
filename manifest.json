@@ -4,7 +4,7 @@
     "name": "Audio Sender",
     "slug": "audio_sender",
     "description": "一个用于直接以语音形式发送音频文件的插件",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "authors": [{
         "name": "xtaw",
         "link": "https://github.com/xtaw"
@@ -13,7 +13,7 @@
         "repo": "xtaw/LiteLoaderQQNT-Audio-Sender",
         "branch": "master",
         "release": {
-            "tag": "1.0.3"
+            "tag": "1.0.4"
         }
     },
     "platform": ["win32", "linux", "darwin"],

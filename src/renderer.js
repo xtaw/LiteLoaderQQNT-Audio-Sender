@@ -23,12 +23,12 @@ document.addEventListener('drop', e => {
                 return;
             }
             const silkPath = `${ file.path }.silk`;
-            const writeFileError = await audio_sender.writeFile(silkPath, convertToSilkResult.data);
+            const writeFileError = await audio_sender.writeFile(silkPath, convertToSilkResult.data.data);
             if (writeFileError) {
                 console.error(writeFileError);
                 return;
             }
-            await Contact.getCurrentContact().sendMessage(new Audio(silkPath));
+            await Contact.getCurrentContact().sendMessage(new Audio(silkPath, convertToSilkResult.data.duration / 1000));
             const deleteFileError = await audio_sender.deleteFile(silkPath);
             if (deleteFileError) {
                 console.error(deleteFileError);
